@@ -26,6 +26,10 @@
             <strong>{{ task.category }}</strong>
             <p>{{ task.task_description }}</p>
         </div>
+        <div class="card-action collapsible-body">
+            <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
+            <a href="#" class="btn red accent-4">Delete</a>
+        </div>
     </li>
     {% endfor %}
 </ul>
