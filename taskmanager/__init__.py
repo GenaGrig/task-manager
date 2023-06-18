@@ -11,4 +11,4 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 db = SQLAlchemy(app)
 
-from taskmanager import routes
+from taskmanager import routes # noqa
