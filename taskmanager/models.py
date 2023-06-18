@@ -9,7 +9,7 @@ class Category(db.Model):
         )
 
     def __repr__(self):
-        return f"Category('{self.category_name}')"
+        return self.category_name
 
 
 class Task(db.Model):
@@ -24,4 +24,10 @@ class Task(db.Model):
         )
 
     def __repr__(self):
-        return f"Task('{self.task_name}','{self.task_description}','{self.task_due_date}','{self.is_urgent}','{self.category_id}')"
+            # __repr__ to represent itself in the form of a string
+            return "#{0} - Task: {1} | Urgent: {2}".format(
+                self.id, self.task_name, self.is_urgent
+            )
+
+    # def __repr__(self):
+    #     return f"Task('{self.task_name}','{self.task_description}','{self.task_due_date}','{self.is_urgent}','{self.category_id}')"
