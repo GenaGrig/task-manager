@@ -25,10 +25,17 @@
         <div class="collapsible-body">
             <strong>{{ task.category }}</strong>
             <p>{{ task.task_description }}</p>
-        </div>
-        <div class="card-action collapsible-body">
-            <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
-            <a href="#" class="btn red accent-4">Delete</a>
+            <p>
+                {% if task.is_completed == True %}
+                <span class="new badge green accent-4" data-badge-caption="Completed"></span>
+                {% else %}
+                <span class="new badge red accent-4" data-badge-caption="Not Completed"></span>
+                {% endif %}
+            </p>
+            <p>
+                <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
+                <a href="#" class="btn red accent-4">Delete</a>
+            </p>
         </div>
     </li>
     {% endfor %}
